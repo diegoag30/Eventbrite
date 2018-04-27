@@ -4,22 +4,11 @@ import game
 
 diego = game.Game("0", "100")
 
-diego.me()
 
-
-def mean(num1, num2):
-    mean_btw = (num1+num2)/2
-    return mean_btw
-
-
-"""def me(minimum, maximum):
-    median_number = mean(minimum, maximum)
-    simbolo = raw_input("Your number is " + str(median_number) + " ? ")
-    if simbolo == "+":
-        minimum = median_number-
-        me(minimum, maximum)
-    elif simbolo == "-":
-        maximum = median_number
-        me(minimum, maximum)
-    elif simbolo == "=":
-        print("Awesome! your number is " + str(median_number) + " !!")"""
+print("Welcome to the Guess Number Game!!!\n")
+selection = raw_input(
+    "Type \"guess\" if you want to guess a number. Othewise, I will guess a number: ")
+if selection == "guess":
+    diego.guess()
+else:
+    diego.me()

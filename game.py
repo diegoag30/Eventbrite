@@ -7,6 +7,7 @@ class Game():
     def __init__(self, minimum, maximum):
         self.minimum = int(minimum)
         self.maximum = int(maximum)
+        self.random_num = rn(int(minimum), int(maximum))
 
      # Busca la mitad entre dos numeros, lo cual acelerara el proceso de busqueda.
     def mean(self):
@@ -28,3 +29,18 @@ class Game():
         else:
             print("Sorry, that's not an answer, please answer using + , - or = ")
             self.me()
+
+        # Creacion funcion guess
+    def guess(self):
+        cpu_number = self.random_num
+        user_answer = raw_input(
+            "Choose a number from " + str(self.minimum) + " to " + str(self.maximum) + ": ")
+        user_answer = int(user_answer)
+        if user_answer == cpu_number:
+            print ("congrats, that's my number")
+        elif user_answer > cpu_number:
+            print ("smaller...")
+            self.guess()
+        elif user_answer < cpu_number:
+            print("say one greater...")
+            self.guess()
