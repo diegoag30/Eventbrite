@@ -14,15 +14,22 @@ class Game():
         mean_btw = (self.minimum+self.maximum)/2
         return mean_btw
 
+     # increaseMe y decreaseMe se utilizan para aumentar y disminuir el numero que se intenta adivinar.
+    def increaseMe(self):
+        self.minimum = self.mean()
+
+    def decreaseMe(self):
+        self.maximum = self.mean()
+
      # Funcion me, adivina numero que esta pensando el usuario
     def me(self):
         median_number = self.mean()
         answer = raw_input("Your number is " + str(median_number) + " ? ")
         if answer == "+":
-            self.minimum = median_number
+            median_number = self.increaseMe()
             self.me()
         elif answer == "-":
-            self.maximum = median_number
+            median_number = self.decreaseMe()
             self.me()
         elif answer == "=":
             print("Awesome! your number is " + str(median_number) + " !!")
@@ -31,6 +38,7 @@ class Game():
             self.me()
 
         # Creacion funcion guess
+
     def guess(self):
         cpu_number = self.random_num
         user_answer = raw_input(
